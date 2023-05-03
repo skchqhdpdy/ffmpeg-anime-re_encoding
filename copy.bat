@@ -1,0 +1,1 @@
+copy /b *.aaa ffmpeg.ts
