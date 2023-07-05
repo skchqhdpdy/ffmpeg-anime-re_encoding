@@ -4,12 +4,13 @@ import time
 import natsort
 
 path = input("dir : ")
-file_list = natsort.natsorted(os.listdir(path))
-file_list_ts = [file for file in file_list if file.endswith(".ts")]
-#file_list_aaa = [file for file in file_list if file.endswith(".aaa")]
 
 os.system(f'copy /b *.aaa result.ts')
 time.sleep(3)
+
+file_list = natsort.natsorted(os.listdir(path))
+file_list_ts = [file for file in file_list if file.endswith(".ts")]
+#file_list_aaa = [file for file in file_list if file.endswith(".aaa")]
 
 num = 1
 for fileName in file_list_ts:
