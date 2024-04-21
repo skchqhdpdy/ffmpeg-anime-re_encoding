@@ -75,10 +75,10 @@ else:
     # 모든 스레드의 작업이 완료될 때까지 대기
     for thread in threads:
         thread.join()
-    os.system(f'copy /b data\\*.aaa {title}.ts')
+    os.system(f'copy /b "data\\*.aaa" "{title}.ts"')
     shutil.rmtree("data")
-print(f"{time.time() - st} Sec")
+print(f"\n{time.time() - st} Sec")
 
 os.system(f'ffmpeg -i "{title}.ts" -vcodec copy -acodec copy "{title}.mp4"')
 os.remove(f"{title}.ts")
-print(f"{time.time() - st} Sec")
+print(f"\n{time.time() - st} Sec")
