@@ -4,6 +4,16 @@ import time
 import threading
 import shutil
 
+#ffmpeg 설치확인
+if os.system(f"ffmpeg -version > {'nul' if os.name == 'nt' else '/dev/null'} 2>&1") != 0:
+    print(f"ffmpeg Does Not Found!!")
+    print("exit")
+    if os.name != "nt":
+        print("sudo apt install ffmpeg")
+    else:
+        print("https://github.com/BtbN/FFmpeg-Builds/releases")
+    exit()
+
 multiThreading = False if input("1. 순차적으로 다운로드 \n2. 랜덤 다운로드 (멀티스레딩, 파일로 저장) \n개인적으로 2번 추천함 : ") == "1" else True
 VLE = input("Video (.aaa file) Link End : ") #https://edge-01.gcdn.app/st/___210_Moozzi2_Mushoku_Tensei___Mushoku_Tensei01___/1080/bf2640c14dce4746b16b1abad6774e180355.aaa
 title = input("Title : ")
